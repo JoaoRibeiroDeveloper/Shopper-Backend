@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    entrypoint: .docker/entrypoint.sh
+    container_name: shopper-app
+    ports:
+      - '3333:3333'
+    volumes:
+      - .:/home/node/app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: shopper-db
+    restart: always
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: shopper
+      MYSQL_DATABASE: shopper
+    ports:
+      - "3306:3306"
+    volumes:
+      - .docker/dbdata:/var/lib/mysql
+    cap_add:
+      - SYS_NICE  # Desabilitar o aviso "mbind: Operation not permitted"

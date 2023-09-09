@@ -1,0 +1,1 @@
+export const ADJUSTMENT_PERCENTAGE_PRICE = 0.1;
