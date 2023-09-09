@@ -39,7 +39,7 @@ DB_DATABASE= #Banco de banco - shopper é o padrão que está no docker-compose.
 Na pasta gerada pelo 'git clone' entre e execute o docker-compose, após isso o projeto estará rodando em contêineres
 
 ```shell
-docker-compose up
+docker-compose up --build
 ```
 
 ## Rotas da Aplicação
